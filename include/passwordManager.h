@@ -15,10 +15,14 @@ class PasswordManager {
         void writeInFile(CredentialPair credentialPair);
 
     public:
-        void addCredential(std::string username, std::string password, std::string reEnteredPassword);
-        void updatePassword(std::string username, std::string oldPassword, std::string newPassword);
+        bool addCredential(std::string username, std::string password, std::string reEnteredPassword);
+        bool updatePassword(std::string username, std::string oldPassword, std::string newPassword);
+        bool updateUsername(std::string username);
         void removeCredential(std::string username);
-        void getCredential(std::string username, std::string key);
+        CredentialPair getCredential(std::string username, std::string key);
+        void setAppPassword(std::string password, std::string reEnteredPassword);
+        bool matchAppPassword(std::string password);
+        std::vector<std::string> getAllUsernames();
 };
 
 #endif
